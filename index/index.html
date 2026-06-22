@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kale - IB Rubrics</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/11783/11783221.png">
+    <link rel="icon" type="image/x-icon" href="https://app.notion.com/icons/chess-king_gray.svg?mode=dark">
     <link rel="stylesheet" href="../src/pages/global.css">
+    <script  src="login.js" defer></script>
 </head>
 <body>
     <div class="topnav"> 
@@ -13,11 +14,16 @@
         <a href="#guides">Guides</a>
         <p class="topnavText">Kale</p>
     </div>
-    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/11783/11783221.png" alt="kale-logo">
+    <p class="heading">Kale</p>
+    <p class="subheading">Guide to IB Rubrics</p>
     <div class="login-box">
-        <p class="heading">Kale</p>
-        <p class="subheading">Guide to IB Rubrics</p>
-        <a href="../src/pages/dashboard.html" class="login-button">Login</a>
+        <div class="bruh">
+            <p class="wtf2">Email</p>
+            <input class="signInput" id="usernameInput" type="email" placeholder="example">
+            <p class="wtf2">Password</p>
+            <input class="signInput" id="passwordInput" type="password" placeholder="example">
+            <button onclick="validateUserInput()" class="login-button">Sign In</button>
+        </div>
     </div>
 </body>
 </html>
