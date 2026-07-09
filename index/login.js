@@ -8,12 +8,12 @@ function validateUserInput() {
     if (emailList.includes(inputName)) {
         const emailTag = emailList.indexOf(inputName)
         if (inputPassword === passwordList[emailTag]) {
-            window.location.href = "../src/pages/dashboard.html"
+            window.location.href = "../src/pages/home.html"
             alert("Login successful.")
         } else {
             alert("Password is incorrect.")
         }
     } else {
-        alert("Username does not exist.")
+        alert("Email does not exist.")
     }
 }
