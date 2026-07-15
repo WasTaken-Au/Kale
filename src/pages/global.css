@@ -135,21 +135,26 @@ body {
 
 .widget {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .widget div {
-  margin: 30px;
-  flex-direction: column;
+  margin: 15px;
+  flex-direction: row;
   font-size: 30px;
-  padding: 100px;
+  padding: 200px;
   color: white;
-  background-color: #575757;
+  height: 100%;
+  background-color: #8e8989;
   border-radius: 5px;
+  gap: 20px;
 }
 
-.widget div .sidebar {
-  flex-direction: row;
-  gap: 100px;
-  width: 0px;
-  text-align: center;
+.widget .sidebar {
+  padding: 200px 100px;
+}
+
+.widget .mainbar {
+  padding: 200px 250px;
 }
