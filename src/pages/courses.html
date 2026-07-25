@@ -15,6 +15,9 @@
         <p class="topnavText">Kale</p>
     </div>
     <script>
+        import data from './chapters.json' with { type: 'json' }
+        let num = 0;
+
         const newButton = document.createElement("button");
         newButton.textContent = "Text Button";
     
@@ -23,6 +26,7 @@
         newButton.setAttributeNode(customAttr);
     
         document.body.appendChild(newButton);
+
     </script>
 </body>
 </html>
