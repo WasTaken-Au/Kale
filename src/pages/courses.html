@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="https://app.notion.com/icons/chess-king_gray.svg?mode=dark">
+    <link rel="stylesheet" href="global.css">
+    <script  src="script.js" defer></script>
+</head>
+<body>
+    <div class="topnav"> 
+        <a href="#home" onclick="window.location.href='home.html'">Home</a>
+        <a href="#settings" class="split">Settings</a>
+        <p class="topnavText">Kale</p>
+    </div>
+    <script>
+        const newButton = document.createElement("button");
+        newButton.textContent = "Text Button";
+    
+        const customAttr = document.createAttribute("class");
+        customAttr.value = "course-button";
+        newButton.setAttributeNode(customAttr);
+    
+        document.body.appendChild(newButton);
+    </script>
+</body>
+</html>
