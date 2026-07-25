@@ -118,7 +118,6 @@ body {
 }
 
 .login-button {
-
   background-color: rgb(58, 57, 57);
   color: white;
   font-size: 20px;
@@ -143,22 +142,45 @@ body {
   margin: 15px;
   flex-direction: row;
   font-size: 30px;
-  padding: 200px;
   color: white;
+  height: 100%;
   background-color: #8e8989;
   border-radius: 5px;
   gap: 20px;
 }
 
 .widget .sidebar {
-  padding: 200px 100px;
+  padding: 320px 100px;
 }
 
 .widget .mainbar {
-  padding: 200px 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(51, 47, 47);
 }
 
-.widget .guide-chapter {
+.widget .mainbar .chapter {
+  font-family: 'Inter', sans-serif;
+  background-color: #a8a2a2;
   color: white;
-  background-color: #8e8989;
+  border: 0px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 250px;
 }
+
+.course-button {
+  font-family: 'Inter', sans-serif;
+  background-color: #a8a2a2;
+  color: white;
+  border: 0px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 250px;
+}
+
