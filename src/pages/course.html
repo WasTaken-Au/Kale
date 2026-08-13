@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html id="tropical" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+    <link rel="icon" type="image/x-icon" href="https://app.notion.com/icons/chess-king_gray.svg?mode=dark">
+    <link rel="stylesheet" href="global.css">
+    <script  src="script.js" defer></script>
+</head>
+<body>
+    <div class="topnav"> 
+        <a href="#home" onclick="goToHome('course')">Kale</a>
+        <a href="#settings" class="split">Settings</a>
+    </div>
+    <script>
+        const chapters = {
+                "topic00": {
+                    "slides":[
+                    { "number":0,"type":"exp","text":"This is where your journey will begin.<br>Rubrics are an essential part of the evaluation system in MYP, and it is the key to getting higher grades. In fact, the top students in MYP all utilize these rubrics."},
+                    { "number":1, "type":"mul","text":"Take a look at an example of a student's essay.<br><br>It approximately took ten thousand years to move from writing to printing press, but just another five hundred more to proceed to email; from this data, we can assume that our technology is advancing faster than ever before. As a topic, artificial intelligence is currently being developed by thousands of people for the purpose of making our lives easier and creating entertainment. On the other hand, Steven Hawking is worried that AI would spell the end of the human race if it were to think like humans. Although there are many opinions on AI, I believe it would be able to feel and think like humans, and also solve all of our problems.<br><br>Looking at this essay, give a grading from 1~5(1 being the lowest, 5 being the highest)", "mulOp":["1","2","3","4","5"],"mulAn":["Nice.","Nice.","Nice.","Nice.","Nice."]}
+                ]
+                }
+            
+        }
 
+        function feedback(topic) {
+            const selectElement = document.getElementById('option-select')
+            const selectedValue = selectElement.value
+            const bruh = "topic"+topic[0]+topic[2]
+            const array = chapters[bruh].slides[topic[4]].mulOp
+            const index = array.indexOf(selectedValue)
+            const feedback = chapters[bruh].slides[topic[4]].mulAn[index]
+
+            const text = document.createElement('p')
+            text.setAttribute("class","feedback-text")
+            text.innerHTML = feedback
+            document.body.appendChild(text)
+
+            const chooseButton = document.querySelector("#chooseButton")
+            chooseButton.setAttribute("disabled","true")
+            const nextButton = document.querySelector("#nextButton")
+            nextButton.removeAttribute("disabled")
+        }
+
+        function pageRender(topicNo) {
+            if (topicNo[4]==0) {
+                const bruh = "topic"+topicNo[0]+topicNo[2]
+                const text = document.createElement('p')
+                text.setAttribute("id","topicText")
+                text.setAttribute("class","guide-text")
+                text.innerHTML = chapters[bruh].slides[topicNo[4]].text
+                document.body.appendChild(text)
+            }   else {
+                const text = document.getElementById("topicText")
+                const bruh = "topic"+topicNo[0]+topicNo[2]
+                text.innerHTML = chapters[bruh].slides[topicNo[4]].text
+                if (chapters[bruh].slides[topicNo[4]].type == "mul") {
+                    //Make the Next button inactive
+                    const nextButton = document.querySelector("#nextButton")
+                    nextButton.setAttribute("disabled","true")
+                    //Options Dropdown
+                    const label = document.createElement("label")
+                    label.textContent = "Choose an option: "
+                    label.setAttribute("for","option-select")
+                    label.setAttribute("class","label")
+
+                    const select = document.createElement("select")
+                    select.id = "option-select"
+                    select.setAttribute("class","dropdown")
+
+                    chapters[bruh].slides[topicNo[4]].mulOp.forEach(item => {
+                        const option = document.createElement("option")
+                        option.value = item.toLowerCase()
+                        option.textContent = item
+                        select.appendChild(option)
+                    })
+
+                    const container = document.body
+                    container.appendChild(label)
+                    container.appendChild(select)
+                    
+                    //Choose Button
+                    const myButton = document.createElement("button")
+                    myButton.textContent = "Choose"
+                    myButton.setAttribute("id","chooseButton")
+                    myButton.setAttribute("class","choose-button")
+                    myButton.setAttribute("onclick","feedback('"+topicNo+"')")
+                    document.body.append(myButton)
+                }
+            }
+        }
+
+        function nextPage() {
+            const bruh = "topic"+topicNo[0]+topicNo[2]
+            const length = (chapters[bruh].slides).length
+
+            if (fixedTopicNo[4] == length-1) {
+                alert("Topic Complete!")
+                window.location.href ='home.html'
+            } else {
+                num = parseInt(fixedTopicNo[4],10)
+                fixedTopicNo = fixedTopicNo.slice(0,4) + String(num+1)
+                pageRender(fixedTopicNo)
+            }
+        }
+
+        const topicNo = localStorage.getItem('topicNo')
+        let fixedTopicNo = topicNo+"-0"
+        pageRender(fixedTopicNo)
+    </script>
+    <script src="script.js"></script>
+    <button id="nextButton" class="nextButton" onclick="nextPage()">Next</button>
+</body>
+</html>
