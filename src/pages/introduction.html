@@ -10,23 +10,29 @@
 </head>
 <body>
     <div class="topnav"> 
-        <a href="#home" onclick="window.location.href='home.html'">Home</a>
+        <a href="#home" onclick="window.location.href='home.html'">Kale</a>
         <a href="#settings" class="split">Settings</a>
-        <p class="topnavText">Kale</p>
     </div>
+    <h1 class="headline">Introduction - Topics</h1>
+    <div class="courseBar">
+        <button id="button1" class="course-button" onclick="establishPage('0-0')"></button>
+        <button id="button2" class="course-button"></button>
+        <button id="button3" class="course-button"></button>
+        <button id="button4" class="course-button"></button>
+        <button id="button5" class="course-button"></button>
+    </div>
+
     <script>
-        import data from './chapters.json' with { type: 'json' }
-        let num = 0;
+        const introduction = {
+            "topics":["Rubrics","Subjects and Criteria","Strands and Bands","TSC and Command Terms","Grading and Evaluation"]
+        };
 
-        const newButton = document.createElement("button");
-        newButton.textContent = data;
-    
-        const customAttr = document.createAttribute("class");
-        customAttr.value = "course-button";
-        newButton.setAttributeNode(customAttr);
-    
-        document.body.appendChild(newButton);
-
+        document.getElementById("button1").textContent = introduction.topics[0];
+        document.getElementById("button2").textContent = introduction.topics[1];
+        document.getElementById("button3").textContent = introduction.topics[2];
+        document.getElementById("button4").textContent = introduction.topics[3];
+        document.getElementById("button5").textContent = introduction.topics[4];
     </script>
+
 </body>
 </html>
